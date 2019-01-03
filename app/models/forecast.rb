@@ -1,3 +1,5 @@
+require "date"
+
 class Forecast
   attr_reader :id
 
@@ -20,7 +22,15 @@ class Forecast
   end
 
   def time
-    #add logic here to format the time
+    datetime_format.strftime('%I:%M')
+  end
+
+  def date
+    datetime_format.to_date
+  end
+
+  def datetime_format
+    DateTime.strptime("#{@time}", '%s')
   end
 
   def current_day

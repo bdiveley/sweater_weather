@@ -20,4 +20,11 @@ describe "forecast" do
   it "formats the forecast location" do
     expect(@forecast.location).to eq("Denver, CO")
   end
+  it 'formats the forecast time' do
+    expect(@forecast.time).to eq("03:38")
+  end
+  it 'formats the forecast date' do
+    formatted = @forecast.date 
+    expect(formatted.to_s).to eq("2019-01-03")
+  end
 end
