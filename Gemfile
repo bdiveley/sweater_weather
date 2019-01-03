@@ -20,7 +20,7 @@ group :development, :test do
   gem 'launchy'
   gem 'shoulda-matchers'
   gem 'simplecov'
-  gem 'vcr'
+  # gem 'vcr'
   gem 'database_cleaner'
 end
 
@@ -29,7 +29,7 @@ group :development do
 end
 
 group :test do
-  gem 'webmock'
+  # gem 'webmock'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
