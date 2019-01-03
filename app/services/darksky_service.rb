@@ -5,7 +5,7 @@ class DarkskyService
     @long = coords[:lng]
   end
 
-  def get_forecast_json
+  def get_json
     JSON.parse(response.body, symbolize_names: true)
   end
 

@@ -10,7 +10,7 @@ describe "dark sky service" do
     expect(@service).to be_a(DarkskyService)
   end
   it "it returns forecast data" do
-    forecast = @service.get_forecast_json
+    forecast = @service.get_json
 
     expect(forecast).to be_a(Hash)
     expect(forecast[:latitude]).to eq(@coords[:lat])
