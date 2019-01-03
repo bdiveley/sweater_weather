@@ -1,6 +1,8 @@
 class Forecast
+  attr_reader :id
 
   def initialize(location, data)
+    @id = 1
     @location = location
     @time = data[:currently][:time]
     @current_day = nil
@@ -24,12 +26,11 @@ class Forecast
   def current_day
     #create day object and grab relevant info
     #this day will have an array of hourly objects
+  end
 
   def upcoming_days
     #create an array of day objects
     #these will not have hourly ojects
   end
-
-
 
 end

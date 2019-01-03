@@ -1,8 +1,6 @@
 class ForecastFacade
-  attr_reader :id
 
   def initialize(location)
-    @id = 1
     @location = location
     @coords = nil
     @forecast_results = nil
@@ -10,8 +8,15 @@ class ForecastFacade
 
   def get_forecast
     @forecast_results ||= darksky_service(get_coords).get_json
-    Forecast.new(location, @forecast_results)
+    Forecast.new(@location, @forecast_results)
+    # load_forecast_days(forecast)
   end
+
+  # def load_forecast_days(forecast)
+  #   forecast.current_day(@forecast_results)
+  #   forecast_upcoming_days(@forecast_results)
+  #   forecast
+  # end
 
 private
 

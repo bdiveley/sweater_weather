@@ -1,9 +1,8 @@
 class Api::V1::ForecastController < ApplicationController
 
   def show
-    @facade = ForecastFacade.new(params[:location])
-    @facade.get_forecast
-    render json: ForecastSerializer.new(@facade)
+    @forecast = ForecastFacade.new(params[:location]).get_forecast
+    render json: ForecastSerializer.new(@forecast)
   end
 
 end
