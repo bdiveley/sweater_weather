@@ -1,5 +1,3 @@
-require "date"
-
 class Forecast
   attr_reader :id,
               :current_day,
@@ -32,8 +30,7 @@ class Forecast
   end
 
   def datetime_format
-    formatted = DateTime.strptime("#{@datetime}", '%s')
-    (formatted.to_time - 7.hours).to_datetime
+    Time.at(@datetime)
   end
 
   def load_today(all_data)

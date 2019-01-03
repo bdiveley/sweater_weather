@@ -1,7 +1,7 @@
 class FutureDay
 
   def initialize(data)
-    @day_of_week = data[:time]
+    @day_of_week =  Time.at(data[:time]).strftime('%A')
     @summary = data[:summary]
     @icon = data[:icon]
     @chance_of_precip = data[:precipProbability]
