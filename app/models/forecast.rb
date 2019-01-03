@@ -1,7 +1,9 @@
 require "date"
 
 class Forecast
-  attr_reader :id, :current_day
+  attr_reader :id,
+              :current_day,
+              :upcoming_days
 
   def initialize(location, data)
     @id = 1
@@ -34,16 +36,16 @@ class Forecast
     (formatted.to_time - 7.hours).to_datetime
   end
 
-  def load_today(data)
-    @current_day ||= CurrentDay.new(data)
-    @current_day.load_hourly(data[:hourly][:data][0..7])
+  def load_today(all_data)
+    @current_day ||= CurrentDay.new(all_data)
+    @current_day.load_hourly(all_data[:hourly][:data][0..7])
     @current_day
   end
 
-  def upcoming_days
-    @upcoming_days
-    #create an array of day objects
-    #these will not have hourly ojects
+  def load_upcoming_days(daily_data)
+    daily_data.map do |daily|
+      @upcoming_days << FutureDay.new(daily)
+    end
   end
 
 end

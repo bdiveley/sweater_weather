@@ -16,7 +16,7 @@ private
 
   def load_forecast_days(forecast)
     forecast.load_today(@forecast_results)
-    # forecast_upcoming_days(@forecast_results)
+    forecast.load_upcoming_days(@forecast_results[:daily][:data][1..6])
     forecast
   end
 
