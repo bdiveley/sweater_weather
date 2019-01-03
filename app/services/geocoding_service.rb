@@ -4,8 +4,8 @@ class GeocodingService
     @location = location
   end
 
-  def get_coords
-    JSON.parse(response.body, symbolize_names: true)[:results][0][:geometry][:location]
+  def get_json
+    JSON.parse(response.body, symbolize_names: true)
   end
 
 private

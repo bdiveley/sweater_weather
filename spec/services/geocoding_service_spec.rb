@@ -7,10 +7,12 @@ describe "google geocoding service" do
     expect(service).to be_a(GeocodingService)
   end
   it "returns lat,long for a given location" do
-    service = GeocodingService.new("denver,co")
+    VCR.use_cassette("geocoding_coords_cassette") do 
+      service = GeocodingService.new("denver,co")
 
-    coords = service.get_coords
+      coords = service.get_json[:results][0][:geometry][:location]
 
-    expect(coords).to eq({lat: 39.7392358, lng: -104.990251})
+      expect(coords).to eq({lat: 39.7392358, lng: -104.990251})
+    end
   end
 end

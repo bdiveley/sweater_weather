@@ -10,11 +10,13 @@ describe "dark sky service" do
     expect(@service).to be_a(DarkskyService)
   end
   it "it returns forecast data" do
-    forecast = @service.get_forecast
+    VCR.use_cassette("darksky_data_cassette") do
+      forecast = @service.get_json
 
-    expect(forecast).to be_a(Hash)
-    expect(forecast[:latitude]).to eq(@coords[:lat])
-    expect(forecast[:longitude]).to eq(@coords[:lng])
-    expect(forecast[:timezone]).to match("/Denver")
+      expect(forecast).to be_a(Hash)
+      expect(forecast[:latitude]).to eq(@coords[:lat])
+      expect(forecast[:longitude]).to eq(@coords[:lng])
+      expect(forecast[:timezone]).to match("/Denver")
+    end
   end
 end
