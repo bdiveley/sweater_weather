@@ -8,7 +8,7 @@ class Forecast
     @location = location
     @datetime = data[:currently][:time]
     @current_day = nil
-    @upcoming_days = nil
+    @upcoming_days = []
   end
 
   def location
@@ -41,6 +41,7 @@ class Forecast
   end
 
   def upcoming_days
+    @upcoming_days
     #create an array of day objects
     #these will not have hourly ojects
   end
