@@ -11,7 +11,7 @@ describe "forecast" do
             "summary": "Clear",
             "icon": "clear-night" }
           }
-    forecast = Forecast.new(data)
+    forecast = Forecast.new('Denver, CO', data)
 
     expect(forecast).to be_a(Forecast)
   end

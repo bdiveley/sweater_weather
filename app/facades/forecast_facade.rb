@@ -10,17 +10,7 @@ class ForecastFacade
 
   def get_forecast
     @forecast_results ||= darksky_service(get_coords).get_json
-    Forecast.new(@forecast_results)
-  end
-
-  def location
-    @location.split(",").map do |word|
-      if word.length > 2
-        word.titleize
-      else
-        word.upcase
-      end
-    end.join(", ")
+    Forecast.new(location, @forecast_results)
   end
 
 private
