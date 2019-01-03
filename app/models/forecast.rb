@@ -1,12 +1,12 @@
 require "date"
 
 class Forecast
-  attr_reader :id
+  attr_reader :id, :current_day
 
   def initialize(location, data)
     @id = 1
     @location = location
-    @time = data[:currently][:time]
+    @datetime = data[:currently][:time]
     @current_day = nil
     @upcoming_days = nil
   end
@@ -26,16 +26,18 @@ class Forecast
   end
 
   def date
-    datetime_format.to_date
+    datetime_format.strftime("%m-%d-%Y")
   end
 
   def datetime_format
-    DateTime.strptime("#{@time}", '%s')
+    formatted = DateTime.strptime("#{@datetime}", '%s')
+    (formatted.to_time - 7.hours).to_datetime
   end
 
-  def current_day
-    #create day object and grab relevant info
-    #this day will have an array of hourly objects
+  def load_today(data)
+    @current_day ||= CurrentDay.new(data)
+    @current_day.load_hourly(data[:hourly][:data][0..7])
+    @current_day
   end
 
   def upcoming_days

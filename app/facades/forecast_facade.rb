@@ -8,17 +8,17 @@ class ForecastFacade
 
   def get_forecast
     @forecast_results ||= darksky_service(get_coords).get_json
-    Forecast.new(@location, @forecast_results)
-    # load_forecast_days(forecast)
+    forecast = Forecast.new(@location, @forecast_results)
+    load_forecast_days(forecast)
   end
 
-  # def load_forecast_days(forecast)
-  #   forecast.current_day(@forecast_results)
-  #   forecast_upcoming_days(@forecast_results)
-  #   forecast
-  # end
-
 private
+
+  def load_forecast_days(forecast)
+    forecast.load_today(@forecast_results)
+    # forecast_upcoming_days(@forecast_results)
+    forecast
+  end
 
   def get_coords
     @coords ||= geocode_service.get_json[:results][0][:geometry][:location]
