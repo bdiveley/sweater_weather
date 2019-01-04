@@ -31,6 +31,10 @@ class Forecast
     datetime_format.strftime("%m-%d-%Y")
   end
 
+  def copyright
+    datetime_format.strftime("%Y")
+  end
+
   def datetime_format
     Time.at(@datetime)
   end
