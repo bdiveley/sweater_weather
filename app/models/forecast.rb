@@ -3,10 +3,10 @@ class Forecast
               :current_day,
               :upcoming_days
 
-  def initialize(location, data)
+  def initialize(data)
     @id = 1
-    @location = location
-    @datetime = data[:currently][:time]
+    @location = data[:location]
+    @datetime = data[:data][:currently][:time]
     @current_day = nil
     @upcoming_days = []
     @giphy_days = []
@@ -43,6 +43,14 @@ class Forecast
   def load_upcoming_days(daily_data)
     daily_data.map do |daily|
       @upcoming_days << FutureDay.new(daily)
+    end
+  end
+
+  def load_giphy_days(daily_data, gif_urls)
+    combined_data = daily_data.zip(gif_urls)
+    combined_data.each do |day|
+      binding.pry
+
     end
   end
 

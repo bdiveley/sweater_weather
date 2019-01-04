@@ -12,7 +12,7 @@ describe "forecast" do
         "summary": "Clear",
         "icon": "clear-night" }
       }
-      @forecast = Forecast.new(location, data)
+      @forecast = Forecast.new({location: location, data: data})
     end
   it "exists" do
     expect(@forecast).to be_a(Forecast)
@@ -24,7 +24,7 @@ describe "forecast" do
     expect(@forecast.time).to eq("08:38")
   end
   it 'formats the forecast date' do
-    formatted = @forecast.date 
+    formatted = @forecast.date
     expect(formatted.to_s).to eq("01-02-2019")
   end
 end

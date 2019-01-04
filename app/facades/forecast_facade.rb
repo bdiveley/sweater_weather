@@ -12,14 +12,14 @@ class ForecastFacade
     daily_data.map do |daily|
       @giphy_forecast_results << giphy_service(daily[:summary]).get_json[:data][0][:url]
     end
-    binding.pry
-    # forecast = Forecast.new(@location, @forecast_results)
-    # load_giphy_days(forecast)
+    forecast = Forecast.new({location: @location, data: @forecast_results})
+    forecast.load_giphy_days(@forecast_results[:daily][:data][0..9], @giphy_forecast_results)
+    forecast
   end
 
   def get_forecast
     get_forecast_results
-    forecast = Forecast.new(@location, @forecast_results)
+    forecast = Forecast.new({location: @location, data: @forecast_results})
     load_forecast_days(forecast)
   end
 
