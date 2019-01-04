@@ -9,6 +9,7 @@ class Forecast
     @datetime = data[:currently][:time]
     @current_day = nil
     @upcoming_days = []
+    @giphy_days = []
   end
 
   def location

@@ -6,10 +6,19 @@ class ForecastFacade
     @forecast_results = nil
   end
 
+  def get_giphy_forecast
+    get_forecast_results
+    # forecast = Forecast.new(@location, @forecast_results)
+    # load_giphy_days(forecast)
+
   def get_forecast
-    @forecast_results ||= darksky_service(get_coords).get_json
+    get_forecast_results
     forecast = Forecast.new(@location, @forecast_results)
     load_forecast_days(forecast)
+  end
+
+  def get_forecast_results
+    @forecast_results ||= darksky_service(get_coords).get_json
   end
 
 private
