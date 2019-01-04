@@ -1,7 +1,8 @@
 class Forecast
   attr_reader :id,
               :current_day,
-              :upcoming_days
+              :upcoming_days,
+              :giphy_days
 
   def initialize(data)
     @id = 1
