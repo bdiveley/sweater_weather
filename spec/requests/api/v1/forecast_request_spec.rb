@@ -2,8 +2,8 @@ require 'rails_helper'
 
 describe 'Forecast API' do
   it 'returns forecast data' do
-    stub_geocode_request
-    stub_darksky_forecast_request
+    # stub_geocode_request
+    # stub_darksky_forecast_request
 
     get '/api/v1/forecast?location=denver,co'
 

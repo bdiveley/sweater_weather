@@ -4,12 +4,18 @@ class ForecastFacade
     @location = location
     @coords = nil
     @forecast_results = nil
+    @giphy_forecast_results = []
   end
 
   def get_giphy_forecast
-    get_forecast_results
+    daily_data = get_forecast_results[:daily][:data]
+    daily_data.map do |daily|
+      @giphy_forecast_results << giphy_service.(daily[:summary]).get_json
+    end
+    binding.pry
     # forecast = Forecast.new(@location, @forecast_results)
     # load_giphy_days(forecast)
+  end
 
   def get_forecast
     get_forecast_results
@@ -39,5 +45,9 @@ private
 
   def darksky_service(coords)
     DarkskyService.new(coords)
+  end
+
+  def giphy_service(summary)
+    GiphyService.new(summary)
   end
 end
