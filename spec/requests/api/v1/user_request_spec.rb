@@ -7,6 +7,11 @@ describe 'User API' do
     expect(User.all.count).to eq(1)
     expect(User.all.last.api_key).to be_a(String)
   end
+  it 'does not create a user if passwords do not match' do
+    post "/api/v1/users?email=whatever@example.com&password=password&password_confirmation=nope"
+
+    expect(User.all.count).to eq(0)
+  end
   it 'returns an api_key' do
     post "/api/v1/users?email=whatever@example.com&password=password&password_confirmation=password"
     expect(response).to be_successful
