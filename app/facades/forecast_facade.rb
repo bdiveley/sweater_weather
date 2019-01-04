@@ -7,6 +7,8 @@ class ForecastFacade
     @giphy_forecast_results = []
   end
 
+  #Next Steps:  this facade is getting a bit lengthy, would consider adding a separate GiphyForecastFacade
+
   def get_giphy_forecast
     get_giphy_service_results(get_forecast_results)
     load_giphy_forecast_days(create_forecast)

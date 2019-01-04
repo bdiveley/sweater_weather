@@ -13,6 +13,8 @@ class Forecast
     @giphy_days = []
   end
 
+  #Next steps: add a main Day class that the other Day classes inherit from to reduce redundancy
+
   def location
     @location.split(",").map do |word|
       if word.length > 2
@@ -23,6 +25,7 @@ class Forecast
     end.join(", ")
   end
 
+  #Next steps: add a module for the below time-formatting methods
   def time
     datetime_format.strftime('%I:%M')
   end
