@@ -49,8 +49,7 @@ class Forecast
   def load_giphy_days(daily_data, gif_urls)
     combined_data = daily_data.zip(gif_urls)
     combined_data.each do |day|
-      binding.pry
-
+      @giphy_days << GiphyDay.new(day)
     end
   end
 
