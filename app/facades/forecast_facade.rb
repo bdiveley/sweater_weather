@@ -8,8 +8,7 @@ class ForecastFacade
   end
 
   def get_giphy_forecast
-    get_forecast_results
-    get_giphy_service_results(@forecast_results)
+    get_giphy_service_results(get_forecast_results)
     load_giphy_forecast_days(create_forecast)
   end
 
@@ -18,11 +17,11 @@ class ForecastFacade
     load_forecast_days(create_forecast)
   end
 
+private
+
   def create_forecast
     Forecast.new({location: @location, data: @forecast_results})
   end
-
-private
 
   def get_giphy_service_results(results)
     results[:daily][:data].map do |daily|
