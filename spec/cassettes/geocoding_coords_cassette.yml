@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://maps.googleapis.com/maps/api/geocode/json?address=denver,co&key=AIzaSyCzbeX7pEGhscJikRmkZEPI4pRPOCmE8YA
+    uri: https://maps.googleapis.com/maps/api/geocode/json?address=denver,co&key=<GOOGLE_API_KEY>
     body:
       encoding: US-ASCII
       string: ''
@@ -21,9 +21,9 @@ http_interactions:
       Content-Type:
       - application/json; charset=UTF-8
       Date:
-      - Thu, 03 Jan 2019 22:12:14 GMT
+      - Sun, 06 Jan 2019 19:34:14 GMT
       Expires:
-      - Fri, 04 Jan 2019 22:12:14 GMT
+      - Mon, 07 Jan 2019 19:34:14 GMT
       Cache-Control:
       - public, max-age=86400
       Vary:
@@ -39,7 +39,7 @@ http_interactions:
       X-Frame-Options:
       - SAMEORIGIN
       Server-Timing:
-      - gfet4t7; dur=34
+      - gfet4t7; dur=491
       Alt-Svc:
       - quic=":443"; ma=2592000; v="44,43,39,35"
     body:
@@ -105,5 +105,5 @@ http_interactions:
            "status" : "OK"
         }
     http_version: 
-  recorded_at: Thu, 03 Jan 2019 22:12:14 GMT
+  recorded_at: Sun, 06 Jan 2019 19:34:14 GMT
 recorded_with: VCR 4.0.0
