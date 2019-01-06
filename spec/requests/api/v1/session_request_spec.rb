@@ -2,8 +2,8 @@ require "rails_helper"
 
 describe "Session Request API" do
   it "returns a user's api in the response" do
-    user = User.create(email: "whatever@example.com", password: "password", api_key: "123abc")
-    post "/api/v1/sessions?email=whatever@example.com&password=password"
+    user = create(:user)
+    post "/api/v1/sessions?email=sample@gmail.com&password=test"
 
     expect(response).to be_successful
     key = JSON.parse(response.body, symbolize_names: true)
@@ -11,9 +11,10 @@ describe "Session Request API" do
     expect(key[:data][:attributes]).to have_key(:api_key)
   end
   it "does not return a user's api in the response if password is wrong" do
-    user = User.create(email: "whatever@example.com", password: "password", api_key: "123abc")
-    post "/api/v1/sessions?email=whatever@example.com&password=wrong"
+    user = create(:user)
+    post "/api/v1/sessions?email=sample@gmail.com&password=wrong"
 
-    expect(response.body).to eq("")
+    expect(response.body).to eq("Unauthorized")
+    expect(response.status).to eq(401)
   end
 end

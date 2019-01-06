@@ -7,16 +7,19 @@ class ForecastFacade
   end
 
   def get_forecast
-    @forecast_results ||= darksky_service(get_coords).get_json
-    forecast = Forecast.new(@location, @forecast_results)
+    forecast = Forecast.new(@location, forecast_results)
     load_forecast_days(forecast)
   end
 
 private
 
+  def forecast_results
+    @forecast_results ||= darksky_service(get_coords).get_json
+  end
+
   def load_forecast_days(forecast)
-    forecast.load_today(@forecast_results)
-    forecast.load_upcoming_days(@forecast_results[:daily][:data][1..6])
+    forecast.load_today(forecast_results)
+    forecast.load_upcoming_days(forecast_results[:daily][:data][1..6])
     forecast
   end
 
