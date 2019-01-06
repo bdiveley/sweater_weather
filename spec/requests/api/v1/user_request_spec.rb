@@ -2,18 +2,18 @@ require "rails_helper"
 
 describe 'User API' do
   it 'creates a user with api-key' do
-    post "/api/v1/users?email=whatever@example.com&password=password&password_confirmation=password"
+    post "/api/v1/users?email=sample@gmail.com&password=test&password_confirmation=test"
 
     expect(User.all.count).to eq(1)
     expect(User.all.last.api_key).to be_a(String)
   end
   it 'does not create a user if passwords do not match' do
-    post "/api/v1/users?email=whatever@example.com&password=password&password_confirmation=nope"
+    post "/api/v1/users?email=sample@gmail.com&password=test&password_confirmation=nope"
 
     expect(User.all.count).to eq(0)
   end
   it 'returns an api_key' do
-    post "/api/v1/users?email=whatever@example.com&password=password&password_confirmation=password"
+    post "/api/v1/users?email=sample@gmail.com&password=test&password_confirmation=test"
     expect(response).to be_successful
     key = JSON.parse(response.body, symbolize_names: true)
 
