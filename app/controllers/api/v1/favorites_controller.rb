@@ -4,9 +4,9 @@ class Api::V1::FavoritesController < ApplicationController
     @user = User.find_by(api_key: params[:api_key])
     if @user
       @user.favorites.create(location: params[:location])
-      render json: UserSerializer(@user)
+      render json: UserSerializer.new(@user)
     else
-      #render 401 error page
+      render body: 'Unauthorized', status: 401
     end
   end
 
