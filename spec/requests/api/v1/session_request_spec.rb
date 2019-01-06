@@ -14,6 +14,7 @@ describe "Session Request API" do
     user = create(:user)
     post "/api/v1/sessions?email=sample@gmail.com&password=wrong"
 
-    expect(response.body).to eq("")
+    expect(response.body).to eq("Unauthorized")
+    expect(response.status).to eq(401)
   end
 end
