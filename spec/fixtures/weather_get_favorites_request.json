@@ -1,0 +1,138 @@
+{
+    "data": [
+        {
+            "id": "1",
+            "type": "favorite",
+            "attributes": {
+                "location": "Denver, CO",
+                "current_weather": {
+                    "id": 1,
+                    "location": "denver,co",
+                    "datetime": "2019-01-07T14:56:17.000-07:00",
+                    "current_day": {
+                        "summary": "Partly Cloudy",
+                        "icon": "partly-cloudy-day",
+                        "current_temp": 50.62,
+                        "high_temp": 51.41,
+                        "low_temp": 27.52,
+                        "apparent_temp": 50.62,
+                        "humidity": 0.2,
+                        "visibility": 6.88,
+                        "uv_index": 1,
+                        "today_description": "Partly cloudy in the afternoon.",
+                        "hourly": [
+                            {
+                                "time": "02:00",
+                                "temperature": 51.41,
+                                "icon": "partly-cloudy-day"
+                            },
+                            {
+                                "time": "03:00",
+                                "temperature": 50.57,
+                                "icon": "partly-cloudy-day"
+                            },
+                            {
+                                "time": "04:00",
+                                "temperature": 48.48,
+                                "icon": "clear-day"
+                            },
+                            {
+                                "time": "05:00",
+                                "temperature": 46.47,
+                                "icon": "clear-night"
+                            },
+                            {
+                                "time": "06:00",
+                                "temperature": 44.73,
+                                "icon": "clear-night"
+                            },
+                            {
+                                "time": "07:00",
+                                "temperature": 42.93,
+                                "icon": "clear-night"
+                            },
+                            {
+                                "time": "08:00",
+                                "temperature": 41.33,
+                                "icon": "partly-cloudy-night"
+                            },
+                            {
+                                "time": "09:00",
+                                "temperature": 39.89,
+                                "icon": "partly-cloudy-night"
+                            }
+                        ]
+                    },
+                    "upcoming_days": []
+                }
+            }
+        },
+        {
+            "id": "3",
+            "type": "favorite",
+            "attributes": {
+                "location": "Boulder, CO",
+                "current_weather": {
+                    "id": 1,
+                    "location": "boulder,co",
+                    "datetime": "2019-01-07T14:56:18.000-07:00",
+                    "current_day": {
+                        "summary": "Partly Cloudy",
+                        "icon": "partly-cloudy-day",
+                        "current_temp": 46.69,
+                        "high_temp": 46.7,
+                        "low_temp": 30.15,
+                        "apparent_temp": 41.31,
+                        "humidity": 0.27,
+                        "visibility": 7.17,
+                        "uv_index": 1,
+                        "today_description": "Partly cloudy starting in the afternoon and windy starting in the afternoon, continuing until evening.",
+                        "hourly": [
+                            {
+                                "time": "02:00",
+                                "temperature": 46.65,
+                                "icon": "partly-cloudy-day"
+                            },
+                            {
+                                "time": "03:00",
+                                "temperature": 46.7,
+                                "icon": "partly-cloudy-day"
+                            },
+                            {
+                                "time": "04:00",
+                                "temperature": 46.05,
+                                "icon": "wind"
+                            },
+                            {
+                                "time": "05:00",
+                                "temperature": 45.15,
+                                "icon": "wind"
+                            },
+                            {
+                                "time": "06:00",
+                                "temperature": 44.5,
+                                "icon": "wind"
+                            },
+                            {
+                                "time": "07:00",
+                                "temperature": 43.29,
+                                "icon": "wind"
+                            },
+                            {
+                                "time": "08:00",
+                                "temperature": 43.35,
+                                "icon": "wind"
+                            },
+                            {
+                                "time": "09:00",
+                                "temperature": 42.85,
+                                "icon": "wind"
+                            }
+                        ]
+                    },
+                    "upcoming_days": []
+                }
+            }
+        }
+    ]
+}

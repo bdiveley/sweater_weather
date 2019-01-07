@@ -9,6 +9,7 @@ describe 'Forecast API' do
 
     expect(response).to be_successful
     forecast = JSON.parse(response.body, symbolize_names: true)[:data]
+
     expect(forecast[:id]).to eq("1")
     expect(forecast[:attributes][:location]).to eq("Denver, CO")
     expect(forecast[:attributes]).to have_key(:current_day)
