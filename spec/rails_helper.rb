@@ -51,3 +51,11 @@ end
 def stub_darksky_forecast_request
   stub_request(:get, "https://api.darksky.net/forecast/#{ENV['DARKSKY_API_KEY']}/39.7392358,-104.990251").to_return(body: File.read("./spec/fixtures/darksky_forecast_request.json"))
 end
+
+def stub_favorites_get_request
+  stub_request(:get, "/api/v1/favorites?api_key=abc123").to_return(body: File.read("./spec/fixtures/weather_get_favorites_request.json"))
+end
+
+def stub_favorites_post_request
+  stub_request(:get, "/api/v1/favorites?location=denver,co&api_key=abc123").to_return(body: File.read("./spec/fixtures/weather_post_favorite_request.json"))
+end
