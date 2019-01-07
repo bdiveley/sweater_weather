@@ -15,9 +15,6 @@ describe "favorite API request" do
     expect(key[:data][:attributes]).to have_key(:location)
   end
   it "cannot create a new user favorite location if api_key is inaccurate" do
-    stub_favorites_post_request
-    stub_geocode_request
-    stub_darksky_forecast_request
 
     user = create(:user)
     post "/api/v1/favorites?location=denver,co&api_key=xyz123"
@@ -52,5 +49,13 @@ describe "favorite API request" do
     expect(results).to be_a(Array)
     expect(results[0][:attributes]).to have_key(:location)
     expect(results[0][:attributes]).to have_key(:current_weather)
+  end
+  it "cannot displays favorites if api_key is inaccurate" do
+
+    user = create(:user)
+    get  "/api/v1/favorites?api_key=xyz987"
+
+    expect(response.status).to eq(401)
+    expect(response.body).to eq("Unauthorized")
   end
 end
