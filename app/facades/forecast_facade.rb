@@ -13,11 +13,11 @@ class ForecastFacade
     forecast
   end
 
+private
+
   def forecast_results
     @forecast_results ||= darksky_service(get_coords).get_json
   end
-private
-
 
   def load_current_days(forecast)
     forecast.load_today(forecast_results)
