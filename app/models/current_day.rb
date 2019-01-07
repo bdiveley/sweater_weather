@@ -11,12 +11,12 @@ class CurrentDay
     @visibility = data[:currently][:visibility]
     @uv_index = data[:currently][:uvIndex]
     @today_description = data[:daily][:data][0][:summary]
-    @hourly = []
+    @hourly_data = []
   end
 
   def load_hourly(hourly_data)
     hourly_data.map do |hour|
-      @hourly << Hour.new(hour)
+      @hourly_data << Hour.new(hour)
     end
   end
 

@@ -17,14 +17,4 @@ describe "forecast" do
   it "exists" do
     expect(@forecast).to be_a(Forecast)
   end
-  it "formats the forecast location" do
-    expect(@forecast.location).to eq("Denver, CO")
-  end
-  it 'formats the forecast time' do
-    expect(@forecast.time).to eq("08:38")
-  end
-  it 'formats the forecast date' do
-    formatted = @forecast.date 
-    expect(formatted.to_s).to eq("01-02-2019")
-  end
 end

@@ -9,6 +9,15 @@ class Api::V1::FavoritesController < ApplicationController
     end
   end
 
+  def index
+    if current_user
+      @favorites = current_user.favorites
+      render json: FavoriteSerializer.new(@favorites)
+    else
+      render body: "Unauthorized", status: 401
+    end
+  end
+
 private
 
   def current_user
