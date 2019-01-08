@@ -11,8 +11,8 @@ class User < ApplicationRecord
     SecureRandom.hex(27)
   end
 
-  def add_favorites(data)
-    favorites.create(location: data.downcase)
+  def add_favorites(location)
+    favorites.create(location: format_location(location))
   end
 
 end
