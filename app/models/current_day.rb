@@ -1,4 +1,12 @@
 class CurrentDay
+  attr_reader :current_temp,
+              :high_temp,
+              :low_temp,
+              :apparent_temp,
+              :humidity,
+              :uv_index,
+              :visibility,
+              :today_description
 
   def initialize(data)
     @summary = data[:currently][:summary]

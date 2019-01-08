@@ -9,4 +9,8 @@ Rails.application.routes.draw do
       delete :favorites, to: "favorites#destroy"
     end
   end
+  post "/mailers", to: "mailers#create"
+
+  require 'sidekiq/web'
+  mount Sidekiq::Web => '/sidekiq'
 end

@@ -1,0 +1,14 @@
+<h1>Thanks for requesting a forecast!</h1><br>
+Location: <%= @forecast.location %><br>
+Request Time & Date: <%= @forecast.datetime %><br>
+Today's Weather:
+<ul>
+  <li><%= @forecast.current_day.today_description %></li>
+  <li>Current Temp: <%= @forecast.current_day.current_temp %></li>
+  <li>Feels Like: <%= @forecast.current_day.apparent_temp %></li>
+  <li>High Temp: <%= @forecast.current_day.high_temp %></li>
+  <li>Low Temp: <%= @forecast.current_day.low_temp %></li>
+  <li>Humidity: <%= @forecast.current_day.humidity %></li>
+  <li>Visibility: <%= @forecast.current_day.visibility %></li>
+  <li>UV Index: <%= @forecast.current_day.uv_index %></li>
+</ul>
