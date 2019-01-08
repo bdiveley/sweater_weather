@@ -50,10 +50,36 @@ describe "favorite API request" do
     expect(results[0][:attributes]).to have_key(:location)
     expect(results[0][:attributes]).to have_key(:current_weather)
   end
-  it "cannot displays favorites if api_key is inaccurate" do
-
+  it "cannot display favorites if api_key is inaccurate" do
     user = create(:user)
     get  "/api/v1/favorites?api_key=xyz987"
+
+    expect(response.status).to eq(401)
+    expect(response.body).to eq("Unauthorized")
+  end
+  it "can delete a favorite" do
+    stub_geocode_request
+    stub_darksky_forecast_request
+    stub_favorites_get_request
+    stub_favorites_delete_request
+
+    user = create(:user)
+    user.add_favorites("denver,co")
+    user.add_favorites("boulder,co")
+
+    delete "/api/v1/favorites?location=boulder,co&api_key=abc123"
+
+    expect(user.favorites.count).to eq(1)
+    expect(response).to be_successful
+
+    results = JSON.parse(response.body, symbolize_names: true)[:data]
+    expect(results).to be_a(Array)
+    expect(results[0][:attributes][:location]).to eq("Denver, CO")
+    expect(results[0][:attributes]).to have_key(:current_weather)
+  end
+  it "cannot delete favorites if api_key is inaccurate" do
+    user = create(:user)
+    delete  "/api/v1/favorites?api_key=xyz987"
 
     expect(response.status).to eq(401)
     expect(response.body).to eq("Unauthorized")

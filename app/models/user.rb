@@ -14,4 +14,5 @@ class User < ApplicationRecord
   def add_favorites(data)
     favorites.create(location: data.downcase)
   end
+
 end
