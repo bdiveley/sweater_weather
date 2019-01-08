@@ -1,12 +1,14 @@
 class ForecastFacade
+  attr_reader :id
 
   def initialize(location)
+    @id = 1
     @location = location
     @coords = nil
     @forecast_results = nil
   end
 
-  def get_forecast
+  def forecast
     forecast = Forecast.new(@location, forecast_results)
     load_current_days(forecast)
     load_upcoming_days(forecast)

@@ -5,6 +5,4 @@ class FavoriteFacade < ForecastFacade
     forecast.load_today(forecast_results)
     forecast
   end
-
-
 end
