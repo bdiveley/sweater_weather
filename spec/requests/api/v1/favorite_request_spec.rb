@@ -76,6 +76,12 @@ describe "favorite API request" do
     expect(results).to be_a(Array)
     expect(results[0][:attributes][:location]).to eq("Denver, CO")
     expect(results[0][:attributes]).to have_key(:current_weather)
+  end
+  it "cannot delete favorites if api_key is inaccurate" do
+    user = create(:user)
+    delete  "/api/v1/favorites?api_key=xyz987"
 
+    expect(response.status).to eq(401)
+    expect(response.body).to eq("Unauthorized")
   end
 end
