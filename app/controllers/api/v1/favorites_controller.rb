@@ -2,8 +2,7 @@ class Api::V1::FavoritesController < ApplicationController
 
   def create
     if current_user
-      @favorite = current_user.add_favorites(params[:location])
-      render json: FavoriteSerializer.new(@favorite)
+      render json: FavoriteSerializer.new(add_favorite)
     else
       render body: 'Unauthorized', status: 401
     end
@@ -11,17 +10,33 @@ class Api::V1::FavoritesController < ApplicationController
 
   def index
     if current_user
-      @favorites = current_user.favorites
-      render json: FavoriteSerializer.new(@favorites)
+      render json: FavoriteSerializer.new(user_favorites)
     else
       render body: "Unauthorized", status: 401
     end
+  end
+
+  def destroy
+    find_favorite.destroy
+    render json: FavoriteSerializer.new(user_favorites)
   end
 
 private
 
   def current_user
     @user ||= User.find_by(api_key: params[:api_key])
+  end
+
+  def user_favorites
+    current_user.favorites
+  end
+
+  def find_favorite
+    current_user.favorites.find_by(location: params[:location])
+  end
+
+  def add_favorite
+    current_user.add_favorites(params[:location])
   end
 
 end
