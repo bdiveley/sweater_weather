@@ -57,5 +57,10 @@ def stub_favorites_get_request
 end
 
 def stub_favorites_post_request
-  stub_request(:get, "/api/v1/favorites?location=denver,co&api_key=abc123").to_return(body: File.read("./spec/fixtures/weather_post_favorite_request.json"))
+  stub_request(:post, "/api/v1/favorites?location=denver,co&api_key=abc123").to_return(body: File.read("./spec/fixtures/weather_post_favorite_request.json"))
+end
+
+def stub_favorites_delete_request
+  stub_request(:delete, "/api/v1/favorites?location=boulder,co&api_key=abc123").to_return(body: File.read("./spec/fixtures/weather_delete_favorite_request.json"))
+
 end

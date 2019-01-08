@@ -1,0 +1,68 @@
+{
+    "data": [
+        {
+            "id": "3",
+            "type": "favorite",
+            "attributes": {
+                "location": "Denver, CO",
+                "current_weather": {
+                    "datetime": "2019-01-07T19:09:52.000-07:00",
+                    "current_day": {
+                        "summary": "Clear",
+                        "icon": "clear-night",
+                        "current_temp": 42.49,
+                        "high_temp": 46.65,
+                        "low_temp": 27.55,
+                        "apparent_temp": 38.94,
+                        "humidity": 0.33,
+                        "visibility": 6.6,
+                        "uv_index": 0,
+                        "today_description": "Partly cloudy starting in the afternoon.",
+                        "hourly": [
+                            {
+                                "time": "07:00",
+                                "temperature": 42.42,
+                                "icon": "clear-night"
+                            },
+                            {
+                                "time": "08:00",
+                                "temperature": 42.84,
+                                "icon": "wind"
+                            },
+                            {
+                                "time": "09:00",
+                                "temperature": 42.79,
+                                "icon": "partly-cloudy-night"
+                            },
+                            {
+                                "time": "10:00",
+                                "temperature": 41.69,
+                                "icon": "partly-cloudy-night"
+                            },
+                            {
+                                "time": "11:00",
+                                "temperature": 38.92,
+                                "icon": "partly-cloudy-night"
+                            },
+                            {
+                                "time": "12:00",
+                                "temperature": 37.52,
+                                "icon": "partly-cloudy-night"
+                            },
+                            {
+                                "time": "01:00",
+                                "temperature": 36.71,
+                                "icon": "partly-cloudy-night"
+                            },
+                            {
+                                "time": "02:00",
+                                "temperature": 35.85,
+                                "icon": "partly-cloudy-night"
+                            }
+                        ]
+                    }
+                }
+            }
+        }
+    ]
+}
