@@ -12,6 +12,8 @@ gem 'figaro'
 gem 'fast_jsonapi'
 gem 'bcrypt'
 gem 'sidekiq'
+gem 'sinatra'
+gem 'sendgrid-ruby'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

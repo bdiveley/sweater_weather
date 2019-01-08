@@ -10,4 +10,7 @@ Rails.application.routes.draw do
     end
   end
   post "/mailers", to: "mailers#create"
+
+  require 'sidekiq/web'
+  mount Sidekiq::Web => '/sidekiq'
 end
