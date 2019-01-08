@@ -4,7 +4,7 @@ class Api::V1::FavoritesController < ApplicationController
     if current_user
       render json: FavoriteSerializer.new(add_favorite)
     else
-      render body: 'Unauthorized', status: 401
+      unauthorized
     end
   end
 
@@ -12,7 +12,7 @@ class Api::V1::FavoritesController < ApplicationController
     if current_user
       render json: FavoriteSerializer.new(user_favorites)
     else
-      render body: "Unauthorized", status: 401
+      unauthorized
     end
   end
 
@@ -21,7 +21,7 @@ class Api::V1::FavoritesController < ApplicationController
       find_favorite.destroy
       render json: FavoriteSerializer.new(user_favorites)
     else
-      render body: "Unauthorized", status: 401
+      unauthorized
     end
   end
 
@@ -41,6 +41,10 @@ private
 
   def add_favorite
     current_user.add_favorites(params[:location])
+  end
+
+  def unauthorized
+    render body: 'Unauthorized', status: 401
   end
 
 end
