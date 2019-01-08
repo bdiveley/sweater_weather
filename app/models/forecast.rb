@@ -33,6 +33,6 @@ class Forecast
       else
         word.upcase
       end
-    end.join(", ")
+    end.join(",")
   end
 end

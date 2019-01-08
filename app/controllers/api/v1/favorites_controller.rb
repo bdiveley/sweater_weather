@@ -36,7 +36,7 @@ private
   end
 
   def find_favorite
-    current_user.favorites.find_by(location: params[:location])
+    current_user.favorites.find_by(location: format_location(params[:location]))
   end
 
   def add_favorite

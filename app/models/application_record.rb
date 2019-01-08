@@ -8,7 +8,7 @@ class ApplicationRecord < ActiveRecord::Base
       else
         word.upcase
       end
-    end.join(", ")
+    end.join(",")
   end
 
 end

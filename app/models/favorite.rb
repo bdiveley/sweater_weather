@@ -3,7 +3,7 @@ class Favorite < ApplicationRecord
   validates :location, uniqueness: true, presence: true
 
   def current_weather
-    facade = FavoriteFacade.new(location)
+    facade = FavoriteFacade.new(location.downcase)
     facade.get_forecast(location)
   end
 end
