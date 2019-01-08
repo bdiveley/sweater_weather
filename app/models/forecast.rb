@@ -1,5 +1,6 @@
 class Forecast
-  attr_reader :datetime,
+  attr_reader :location,
+              :datetime,
               :current_day,
               :upcoming_days
 
