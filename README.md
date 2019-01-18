@@ -1,15 +1,27 @@
 # README - Sweater Weather - https://thawing-basin-85011.herokuapp.com
 
-Sweater Weather is a Rails application that provides and consumes a variety of APIs.  The APIs consumed include Google Geocode and Dark Sky API.  The endpoints provided are -
-get /api/v1/forecast?location=denver,co
-post /api/v1/users?email=sample&password=test&password_confirmation=test
-post /api/v1/sessions?email=sample@email.com&password=test
-post /api/v1/favorites?location=denver,co&api_key=abc123
-get /api/v1/favorites?api_key=abc123
+Sweater Weather is a Rails application that provides and consumes a variety of APIs.  The APIs consumed include Google Geocode and Dark Sky API.  
 
-You can retrieve your user api_key after posting a new user through the /api/v1/users endpoint
+The endpoints provided are -
+* get /api/v1/forecast?location=denver,co
+* post /api/v1/users?email=sample&password=test&password_confirmation=test
+* post /api/v1/sessions?email=sample@email.com&password=test
+* post /api/v1/favorites?location=denver,co&api_key=abc123
+* get /api/v1/favorites?api_key=abc123
+* post /mailers?email=email&location=denver,co
+
+For those endpoints that require an api_key:
+You can retrieve your user application api_key after posting your email, password and password confirmation through the post /api/v1/users endpoint.  
+
+Here is a sample response to the get forecast endpoint:
+![alt text](denver_forecast.png)
+![alt text](denver_forecast2.png)
 
 Sweater Weather utilizes a postgresql database and will eventually utilize Javascript for the front-end design of the application.
+
+Sweater Weather also has functionality to email the contents of a forecast to a user via the post /mailers endpoint.  The application has built-in capability to either send the email straight through Active Mailer or through a Background Worker.  The app utilizes Sendgrid, redis and sidekiq for this functionality.  See setup instructions below.
+
+![alt text](mailer.png)
 
 ## Getting Started
 
@@ -33,6 +45,12 @@ Open terminal and run these commands:
 * bundle
 * rake db:{drop,create,migrate}
 * rails s (this will open the server to look at the program in development)
+* To setup for sending emails via the background worker, run these commands from your terminal:
+  * brew update
+  * brew install redis
+  * Open up a new tab and run 'redis-server'
+  * Open up a new tab and run 'bundle exec sidekiq'
+  * in total, you should have three terminal tabs open - one for the localhost server, one for redis and the last for sidekiq
 
 * Open up a web browser (preferably Chrome)
 
