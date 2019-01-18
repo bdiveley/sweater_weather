@@ -19,7 +19,7 @@ Here is a sample response to the get forecast endpoint:
 
 Sweater Weather utilizes a postgresql database and will eventually utilize Javascript for the front-end design of the application.
 
-Sweater Weather also has functionality to email the contents of a forecast to a user via the post /mailers endpoint.  The application has built-in capability to either send the email straight through Active Mailer or through a Background Worker.  The app utilizes Sendgrid, redis and sidekiq for this functionality.  See setup instructions below.
+Sweater Weather also has functionality to email the contents of a forecast to a user via the post /mailers endpoint.  The application has built-in capability to either send the email straight through Action Mailer or through a Background Worker.  The app utilizes Sendgrid, redis and sidekiq for this functionality.  See setup instructions below.
 
 ![alt text](mailer.png)
 
@@ -33,7 +33,7 @@ From GitHub clone down repository using the following commands in terminal:
 
 ### Prerequisites
 
-Thriftr was developed in Rails 5.2 and so we recommend using the same or a more current version of Rails.  The Ruby version used is 2.4
+Sweater Weather was developed in Rails 5.2 and so we recommend using the same or a more current version of Rails.  The Ruby version used is 2.4
 
 To check your version using terminal run: rails -v in the command line. (use ruby -v to retrieve the ruby version)
 
