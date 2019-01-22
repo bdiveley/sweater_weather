@@ -1,7 +1,7 @@
 class Favorite < ApplicationRecord
   belongs_to :user
   # belongs_to :location
-  validates :location, uniqueness: true, presence: true
+  validates :location, presence: true
 
   # delegates :city, to: :location
   # delegates :state, to: :location
