@@ -14,6 +14,7 @@ gem 'bcrypt'
 gem 'sidekiq'
 gem 'sinatra'
 gem 'sendgrid-ruby'
+gem 'rack-cors', require: 'rack/cors'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
