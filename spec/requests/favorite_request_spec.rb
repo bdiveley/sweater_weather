@@ -7,7 +7,6 @@ describe 'Favorite API' do
     get "/favorites?api_key=#{user.api_key}"
 
     favorites =JSON.parse(response.body, symbolize_names: true)
-    binding.pry
 
     expect(favorites[:data].count).to eq(1)
   end
