@@ -1,8 +1,12 @@
 class Api::V1::UsersController < ApplicationController
 
   def create
-    @user = User.create(new_user_info) if verify_password
-    render json: UserSerializer.new(@user)
+    if verify_password
+      @user = User.create(new_user_info)
+      render json: UserSerializer.new(@user)
+    else
+      render body: "Unauthorized", status: 401
+    end
   end
 
 private
